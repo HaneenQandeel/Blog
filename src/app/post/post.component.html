@@ -1,0 +1,45 @@
+<app-search></app-search> <br>
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+      <div class="panel panel-default" *ngFor="let post of this.postsService.posts">
+          <div class="panel-heading"  >
+              {{post.Title}}
+              <span class="pull-right">
+                  {{post.Date}}
+              </span>
+          </div>
+
+          <div class="panel-body">
+              <p>{{post.Description}}</p>
+              <p>
+                  Tags:
+                  <span class="label label-danger" *ngFor="let tag of post.tags" >
+                    {{tag.title}}</span>
+              </p>
+              <p>
+                  <span class="btn btn-sm btn-success">ipsum</span>
+                  <span class="btn btn-sm btn-info">Comments <span class="badge">{{post.comment}}</span></span>
+
+                  <a href="" class="btn btn-sm btn-primary">See more</a>
+              </p>
+          </div>
+      </div>
+
+      <div align="center">
+          <ul class="pagination">
+
+              <li class="disabled"><span>« Previous</span></li>
+
+
+              <li><a href="" rel="next">Next »</a></li>
+          </ul>
+
+      </div>
+
+  </div>
+
+
+
+</div>
+</div>

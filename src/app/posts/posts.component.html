@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2>
+                      Posts
+
+                      <a routerLink='/add-post' class="btn btn-default pull-right">Create New</a>
+                  </h2>
+              </div>
+
+              <div class="panel-body">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Title</th>
+                              <th>Body</th>
+                              <th>Author</th>
+                              <th>Category</th>
+                              <th>Tags</th>
+                              <th>Published</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let posts of postTable" >
+                              <td>{{posts.Title}}</td>
+                              <td>{{posts.body}}</td>
+                              <td>no</td>
+                              <td>no</td>
+                              <td>no</td>
+                              <!-- <td>{{posts.author}}</td> -->
+                              <!-- <td>{{posts.category.Name}}</td> -->
+                              <td *ngFor="let tag of posts.tags">{{tag.title}}</td>
+
+                              <td>No</td>
+                              <td>
+                                  <a href="/posts/1/publish" data-method="PUT" data-token="32Mxrb2s2QPyv3C1h4iYcbfZBT7PmU7Tfm9koxkk"
+                                      data-confirm="Are you sure?" class="btn btn-xs btn-warning">Publish</a>
+                                  <a routerLink='/show-post' class="btn btn-xs btn-success">Show</a>
+                                  <a (click)='update(posts._id)' class="btn btn-xs btn-info">Edit</a>
+                                  <swal
+  #deleteSwal
+  title="Are you sure to delete Post?"
+  text="This cannot be undone"
+  type="question"
+  [showCancelButton]="true"
+  [focusCancel]="true"
+  (confirm)="deletePosts(posts._id)" >
+</swal>
+                                  <a [swal]="deleteSwal" class="btn btn-xs btn-danger">Delete</a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <ul>
+                    <li *ngFor="let item of collection | paginate: { itemsPerPage: 10, currentPage: p }"> ... </li>
+                  </ul>
+
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+
+
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>

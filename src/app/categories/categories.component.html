@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2>
+                      Categories
+
+                      <a routerLink='/add-category' class="btn btn-default pull-right">Create New</a>
+                  </h2>
+              </div>
+
+              <div class="panel-body">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Post Count</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor='let category of categories'>
+                              <td>{{category.Name}}</td>
+                              <td>{{category.posts.length}}</td>
+                              <td>
+                                  <a  (click) = "update(category._id)" class="btn btn-xs btn-info">Edit</a>
+                                  <swal
+                                  #deleteSwal
+                                  title="Are you sure to delete Category ?"
+                                  type="question"
+                                  [showCancelButton]="true"
+                                  [focusCancel]="true"
+                                  (confirm)="deleteCategory(category._id)" >
+                                </swal>
+
+                                  <a [swal]="deleteSwal" class="btn btn-xs btn-danger">Delete</a>
+                              </td>
+                          </tr>
+
+                      </tbody>
+                  </table>
+
+
+
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>

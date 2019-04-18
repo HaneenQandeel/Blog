@@ -1,0 +1,46 @@
+{
+  "connection": "default",
+  "collectionName": "post",
+  "info": {
+    "name": "post",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "default": "",
+      "type": "string"
+    },
+    "body": {
+      "default": "",
+      "type": "text"
+    },
+    "Date": {
+      "default": "",
+      "type": "date"
+    },
+    "comments": {
+      "collection": "comment",
+      "via": "post"
+    },
+    "tags": {
+      "collection": "tags",
+      "via": "posts"
+    },
+    "category": {
+      "model": "category",
+      "via": "posts"
+    },
+    "author": {
+      "default": "",
+      "type": "string"
+    },
+    "user": {
+      "model": "user",
+      "via": "posts",
+      "plugin": "users-permissions"
+    }
+  }
+}

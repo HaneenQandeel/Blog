@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "comment",
+  "info": {
+    "name": "comment",
+    "description": ""
+  },
+  "options": {
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "default": "",
+      "type": "text"
+    },
+    "tags": {
+      "default": "",
+      "type": "text"
+    },
+    "post": {
+      "model": "post",
+      "via": "comments"
+    }
+  }
+}

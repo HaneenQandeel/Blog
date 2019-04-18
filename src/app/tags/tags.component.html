@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+
+      <div class="col-md-12">
+          <div class="panel panel-default">
+              <div class="panel-heading">
+                  <h2>
+                      Tags
+
+                      <a routerLink='/add-tag' class="btn btn-default pull-right">Create New</a>
+                  </h2>
+              </div>
+
+              <div class="panel-body">
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor='let tag of tags'>
+                              <td>{{tag.title}}</td>
+                              <td>
+                                  <a href="" class="btn btn-xs btn-info">Edit</a>
+                                  <swal
+                                  #deleteSwal
+                                  title="Are you sure to delete Tag ?"
+                                  type="question"
+                                  [showCancelButton]="true"
+                                  [focusCancel]="true"
+                                  (confirm)='deleteTag(tag._id)' >
+                                </swal>
+                                  <a [swal]="deleteSwal" class="btn btn-xs btn-danger">Delete</a>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+
+
+
+              </div>
+          </div>
+      </div>
+
+  </div>
+</div>
